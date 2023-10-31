@@ -3,7 +3,7 @@
 In the folder `scrivito_js/js/` run:
 
 - `npm install`
-- `npm run start:sdk:watch`
+- `npm run start:sdk:node:watch`
 
 This will start Scrivito SDK in watch mode.
 
