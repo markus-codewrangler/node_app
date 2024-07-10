@@ -1,9 +1,9 @@
 import "dotenv/config";
-import Scrivito from "scrivito";
+import { configure, createRestApiClient } from "scrivito";
 
 const tenant = process.env.SCRIVITO_TENANT;
 
-Scrivito.configure({
+configure({
   tenant: tenant,
   apiKey: {
     clientId: process.env.IAM_CLIENT_ID,
@@ -11,7 +11,7 @@ Scrivito.configure({
   },
 });
 
-const jrRestApi = Scrivito.createApiClient("https://api.justrelate.com");
+const jrRestApi = createRestApiClient("https://api.justrelate.com");
 
 const userinfo = await jrRestApi.get(`iam/instances/${tenant}/userinfo`);
 const accountId = userinfo.aud[1];
